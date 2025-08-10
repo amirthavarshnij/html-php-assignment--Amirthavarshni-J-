@@ -1,0 +1,11 @@
+<?php
+$a = 10;
+$b = 4;
+echo "a = $a, b = $b <br><br>";
+echo "Addition (+): " . ($a + $b) . "<br>";
+echo "Subtraction (-): " . ($a - $b) . "<br>";
+echo "Multiplication (*): " . ($a * $b) . "<br>";
+echo "Division (/): " . ($a / $b) . "<br>";
+echo "Modulus (%): " . ($a % $b) . "<br>";
+echo "Exponentiation (**): " . ($a ** $b) . "<br>";
+?>
