@@ -1,0 +1,47 @@
+<?php
+$text = "  Computer Science is Amazing!  ";
+echo "<h2>Original String:</h2>";
+echo $text . "<br><br>";
+ strlen() - Get string length
+echo "Length: " . strlen($text) . "<br>";
+ trim(), ltrim(), rtrim() - Remove spaces
+echo "Trimmed: '" . trim($text) . "'<br>";
+echo "Left Trim: '" . ltrim($text) . "'<br>";
+echo "Right Trim: '" . rtrim($text) . "'<br>";
+strtolower(), strtoupper(), ucfirst(), ucwords()
+echo "Lowercase: " . strtolower($text) . "<br>";
+echo "Uppercase: " . strtoupper($text) . "<br>";
+echo "First letter capitalized: " . ucfirst(trim($text)) . "<br>";
+echo "Capitalize each word: " . ucwords(strtolower(trim($text))) . "<br>";
+ strrev() - Reverse string
+echo "Reversed: " . strrev($text) . "<br>";
+substr() - Extract substring
+echo "Substring (0 to 8): " . substr($text, 0, 8) . "<br>";
+. strpos(), strrpos() - Find position
+echo "First position of 'Science': " . strpos($text, "Science") . "<br>";
+echo "Last position of 'is': " . strrpos($text, "is") . "<br>";
+str_replace() - Replace words
+echo "Replace 'Amazing' with 'Interesting': " . str_replace("Amazing", "Interesting", $text) . "<br>";
+str_repeat() - Repeat string
+echo "Repeat 'Hi!' 3 times: " . str_repeat("Hi! ", 3) . "<br>";
+explode() - Split string into array
+$words = explode(" ", trim($text));
+echo "Exploded words: ";
+print_r($words);
+echo "<br>";
+implode() - Join array into string
+echo "Imploded words: " . implode("-", $words) . "<br>";
+strcmp(), strcasecmp() - Compare strings
+echo "Compare 'Hello' and 'hello' (case-sensitive): " . strcmp("Hello", "hello") . "<br>";
+echo "Compare 'Hello' and 'hello' (case-insensitive): " . strcasecmp("Hello", "hello") . "<br>";
+str_shuffle() - Shuffle characters
+echo "Shuffled string: " . str_shuffle(trim($text)) . "<br>";
+wordwrap() - Wrap text after 10 characters
+echo nl2br("Word wrapped:\n" . wordwrap($text, 10, "\n", true)) . "<br>";
+htmlspecialchars() - Convert HTML chars
+$html = "<b>Bold Text</b>";
+echo "HTML special chars: " . htmlspecialchars($html) . "<br>";
+number_format() - Format number
+$num = 1234567.891;
+echo "Formatted number: " . number_format($num, 2) . "<br>";
+?>
