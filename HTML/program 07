@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greeting Form</title>
+</head>
+<body>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST['name']); 
+    if (!empty($name)) {
+        echo "<h2>Hello, Welcome to $name!</h2>";
+        echo "<p>Have a nice day!!</p>";
+    } else {
+        echo "<p style='color:red;'>Error: Please enter your name.</p>";
+    }
+}
+?>
+<form method="post" action="">
+    <label>Enter your name:</label>
+    <input type="text" name="name">
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
