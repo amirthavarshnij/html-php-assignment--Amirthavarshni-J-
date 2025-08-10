@@ -1,0 +1,22 @@
+<?php
+$a = 10;
+$b = "10";
+$c = 20;
+function checkEquality($x, $y, $strict = false) {
+    if ($strict) {
+        echo ($x === $y) ? "Equal<br>" : "Not Equal<br>";
+    } else {
+        echo ($x == $y) ? "Equal<br>" : "Not Equal<br>";
+    }
+}
+echo "Check with == (value comparison):<br>";
+checkEquality($a, $b); // value comparison
+checkEquality($a, $c);
+echo "<br>Check with === (value and type comparison):<br>";
+checkEquality($a, $b, true); // strict comparison
+checkEquality($a, $c, true);
+echo "<br>Are all three equal (value check)?<br>";
+echo ($a == $b && $b == $c) ? "Equal<br>" : "Not Equal<br>";
+echo "Are all three equal (value & type)?<br>";
+echo ($a === $b && $b === $c) ? "Equal<br>" : "Not Equal<br>";
+?>
