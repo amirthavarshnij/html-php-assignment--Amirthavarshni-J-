@@ -1,0 +1,8 @@
+<?php
+$animal = "antelope";
+$animal_heads = 1;
+$animal_legs = 4;
+
+echo "The $animal has $animal_heads head(s).";
+echo "The $animal has $animal_legs leg(s).";
+?>
