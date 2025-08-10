@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Calculator</title>
+</head>
+<body>
+    <h2>Enter Student Marks</h2>
+    <form method="post">
+        Name: <input type="text" name="name" required><br><br>
+        Marks: <input type="number" name="marks" min="0" max="100" required><br><br>
+        <input type="submit" value="Check Grade">
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = $_POST['name'];
+        $marks = $_POST['marks'];
+        echo "<h3>Result:</h3>";
+        echo "$name (Marks: $marks): ";
+        if ($marks >= 75) {
+            echo "First Class";
+        } elseif ($marks >= 60) {
+            echo "Second Class";
+        } elseif ($marks >= 40) {
+            echo "Third Class";
+        } else {
+            echo "Fail";
+        }
+    }
+    ?>
+</body>
+</html>
