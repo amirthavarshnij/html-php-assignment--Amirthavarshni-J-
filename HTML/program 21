@@ -1,0 +1,27 @@
+.<!DOCTYPE html>
+<html>
+<head>
+    <title>Leap Year Checker</title>
+</head>
+<body>
+    <h2>Check if a Year is a Leap Year</h2>
+    <form method="post">
+        Enter Year: <input type="number" name="year" required>
+        <input type="submit" value="Check">
+    </form>
+    <?php
+    // Function to check leap year
+    function isLeapYear($year) {
+        return (($year % 4 == 0 && $year % 100 != 0) || ($year % 400 == 0));
+    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $year = $_POST['year'];
+        if (isLeapYear($year)) {
+            echo "<p>$year is a leap year.</p>";
+        } else {
+            echo "<p>$year is not a leap year.</p>";
+        }
+    }
+    ?>
+</body>
+</html>
