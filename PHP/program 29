@@ -1,0 +1,19 @@
+<?php
+echo "<h2>PHP Function Demonstrations</h2>";
+echo "<b>1. rand():</b><br>";
+echo "Random number (no range): " . rand() . "<br>";
+echo "Random number (1 to 10): " . rand(1, 10) . "<br><br>";
+echo "<b>2. abs():</b><br>";
+echo "Absolute value of -15: " . abs(-15) . "<br>";
+echo "Absolute value of 20: " . abs(20) . "<br><br>";
+echo "<b>3. str_replace():</b><br>";
+$text = "I love PHP programming";
+echo "Original: $text<br>";
+echo "After replacement: " . str_replace("PHP", "Java", $text) . "<br><br>";
+echo "<b>4. pi():</b><br>";
+echo "Value of pi: " . pi() . "<br>";
+echo "Circumference of a circle (radius 5): " . (2 * pi() * 5) . "<br><br>";
+echo "<b>5. ceil():</b><br>";
+echo "Ceil of 4.2: " . ceil(4.2) . "<br>";
+echo "Ceil of -4.2: " . ceil(-4.2) . "<br>";
+?>
