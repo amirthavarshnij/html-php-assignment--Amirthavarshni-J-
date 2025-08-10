@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Drink Deal Comparison</title>
+</head>
+<body>
+<?php
+function deal($costA, $sizeA, $costB, $sizeB) {
+    $unitPriceA = $costA / $sizeA;
+    $unitPriceB = $costB / $sizeB;
+    echo "Drink A - ₹$costA for $sizeA units (₹" . round($unitPriceA, 2) . " per unit)<br>";
+    echo "Drink B - ₹$costB for $sizeB units (₹" . round($unitPriceB, 2) . " per unit)<br><br>";
+    if ($unitPriceA < $unitPriceB) {
+        echo " Drink A is a better deal. You save money!";
+    } elseif ($unitPriceB < $unitPriceA) {
+        echo " Drink B is a better deal. You save money!";
+    } else {
+        echo " Both drinks cost the same per unit. Choose any.";
+    }
+}
+deal(25, 11, 23, 9);
+?>
+</body>
+</html>
