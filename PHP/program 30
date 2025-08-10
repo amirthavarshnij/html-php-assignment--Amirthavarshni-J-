@@ -1,0 +1,13 @@
+<?php
+function generatePassword($length = 12) {
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+<>?';  
+    $password = '';
+    $charLength = strlen($chars);
+    for ($i = 0; $i < $length; $i++) {
+        $password .= $chars[rand(0, $charLength - 1)];
+    }
+    return $password;
+}
+echo "<h3>Random Password Generator</h3>";
+echo "Generated Password: <b>" . generatePassword(12) . "</b>";
+?>
