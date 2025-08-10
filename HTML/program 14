@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Form</title>
+</head>
+<body>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
+    echo "<h2>Form Submitted Successfully!</h2>";
+    echo "<p>Thank you, <b>$name</b>.</p>";
+    echo "<p>We will contact you shortly at <b>$email</b>.</p>";
+    echo "<hr>";
+}
+?>
+<h2>Contact Form</h2>
+<form method="post" action="">
+    <label>Name:</label>
+    <input type="text" name="name" required><br><br>
+    <label>Email:</label>
+    <input type="email" name="email" required><br><br>
+    <label>Message:</label><br>
+    <textarea name="message" rows="4" cols="30" required></textarea><br><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
