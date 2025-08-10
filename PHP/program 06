@@ -1,0 +1,33 @@
+. <?php
+session_start(); 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $_SESSION['session_name'] = $name; 
+    header("Location: ".$_SERVER['PHP_SELF']."?name=".urlencode($name));
+    exit();
+}
+$get_name = isset($_GET['name']) ? $_GET['name'] : null;
+$session_name = isset($_SESSION['session_name']) ? $_SESSION['session_name'] : null;
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Passing Data in PHP</title>
+</head>
+<body>
+    <h2>Pass Data Between Pages (Single File Demo)</h2>
+    <form method="POST">
+        Enter Name: <input type="text" name="name" required>
+        <input type="submit" value="Submit via POST">
+    </form>
+    <?php if ($get_name): ?>
+        <h3>Data via GET Method:</h3>
+        <p>Name from GET: <?php echo htmlspecialchars($get_name); ?></p>
+    <?php endif; ?>
+
+    <?php if ($session_name): ?>
+        <h3>Data via SESSION Method:</h3>
+        <p>Name from SESSION: <?php echo htmlspecialchars($session_name); ?></p>
+    <?php endif; ?>
+</body>
+</html>
