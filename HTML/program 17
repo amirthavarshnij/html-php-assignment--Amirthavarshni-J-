@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Transaction System</title>
+</head>
+<body>
+<h2>Bank Transaction</h2>
+<form method="post" action="">
+    <label>Enter Current Balance:</label>
+    <input type="number" name="balance" required>
+    <br><br>
+    <label>Select Transaction Type:</label>
+    <select name="transaction" required>
+        <option value="">--Select--</option>
+        <option value="deposit">Deposit</option>
+        <option value="withdraw">Withdraw</option>
+    </select>
+    <br><br>
+    <label>Enter Amount:</label>
+    <input type="number" name="amount" required>
+    <br><br>
+    <input type="submit" name="submit" value="Process Transaction">
+</form>
+<?php
+if (isset($_POST['submit'])) {
+    $balance = $_POST['balance'];
+    $transaction = $_POST['transaction'];
+    $amount = $_POST['amount'];
+    switch ($transaction) {
+        case "deposit":
+            if ($amount > 0) {
+                $balance += $amount;
+                echo "<h3>Deposit successful! New balance: ₹$balance</h3>";
+            } else {
+                echo "<h3> Invalid deposit amount!</h3>";
+            }
+            break;
+        case "withdraw":
+            if ($amount > 0 && $amount <= $balance) {
+                $balance -= $amount;
+                echo "<h3> Withdrawal successful! New balance: ₹$balance</h3>";
+            } elseif ($amount > $balance) {
+                echo "<h3> Insufficient funds! Current balance: ₹$balance</h3>";
+            } else {
+                echo "<h3> Invalid withdrawal amount!</h3>";
+            }
+            break;
+        default:
+            echo "<h3> Invalid transaction type selected!</h3>";
+    }
+    echo "<h4>Transaction Summary for Customers:</h4>";
+    $customers = [
+        "Ravi" => 1200,
+        "Priya" => 2500,
+        "Anil" => 800
+    ];
+
+    $i = 0;
+    foreach ($customers as $name => $bal) {
+        echo "$name has ₹$bal in account.<br>";
+        $i++;
+        if ($i >= 3) break;
+    }
+}
+?>
+</body>
+</html>
