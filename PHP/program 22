@@ -1,0 +1,11 @@
+<?php
+$text = "Computer science is the study of computers and computational systems. 
+Computer science deals with software and software systems. this includes their theory, design, development, and application. 
+A degree in computer science can lead to careers in software engineering, data science, artificial intelligence, and cybersecurity. 
+Computer science is a rapidly growing field in today's digital age.";
+$word = "computer science";
+$count = substr_count(strtolower($text), strtolower($word));
+echo "<h3>Paragraph:</h3><p>$text</p>";
+echo "<h3>Result:</h3>";
+echo "The phrase '$word' occurs $count times in the given paragraph.";
+?>
