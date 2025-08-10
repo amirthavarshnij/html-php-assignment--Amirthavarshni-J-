@@ -1,0 +1,23 @@
+<?php
+$name = "Amirtha";
+$age = 21;
+$city = NULL;
+if (isset($name)) {
+    echo " Name is set and not NULL.<br>";
+} else {
+    echo " Name is not set.<br>";
+}
+if (isset($age)) {
+    echo " Age is set and not NULL.<br>";
+} else {
+    echo " Age is not set.<br>";
+}
+if (isset($city)) {
+    echo " City is set and not NULL.<br>";
+} else {
+    echo " City is not set.<br>";
+}
+if (isset($name, $age)) {
+    echo " Both name and age are set.<br>";
+}
+?>
