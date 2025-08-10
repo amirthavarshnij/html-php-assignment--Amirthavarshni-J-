@@ -1,0 +1,16 @@
+<?php
+echo "<table border='1' cellpadding='10' cellspacing='0'>";
+echo "<tr><th></th>";
+for ($i = 1; $i <= 3; $i++) {
+    echo "<th>$i</th>";
+}
+echo "</tr>";
+for ($i = 1; $i <= 3; $i++) {
+    echo "<tr><th>$i</th>";
+    for ($j = 1; $j <= 3; $j++) {
+        echo "<td>" . round($i / $j, 2) . "</td>";
+    }
+    echo "</tr>";
+}
+echo "</table>";
+?>
