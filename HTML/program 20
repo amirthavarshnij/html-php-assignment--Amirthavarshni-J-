@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Form with Validation</title>
+<style>
+body { font-family: Arial, sans-serif; }
+.error { color: red; }
+.success { color: green; }
+form { max-width: 400px; }
+</style>
+</head>
+<body>
+<h2>Contact Us</h2>
+<form method="post">
+<label>Name:</label><br>
+<input type="text" name="name" value="<?php if(!empty($_POST['name'])) echo htmlspecialchars($_POST['name']); ?>"><br><br>
+    
+    <label>Email:</label><br>
+    <input type="email" name="email" value="<?php if(!empty($_POST['email'])) echo htmlspecialchars($_POST['email']); ?>"><br><br>
+        <label>Message:</label><br>
+        <textarea name="message"><?php if(!empty($_POST['message'])) echo htmlspecialchars($_POST['message']); ?></textarea><br><br>
+    <input type="submit" value="Submit">
+</form>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $message = trim($_POST['message']);
+    $errors = [];
+    if (empty($name)) {
+        $errors[] = "Name is required.";
+    }
+    if (empty($email)) {
+        $errors[] = "Email is required.";
+    }
+    if (empty($message)) {
+        $errors[] = "Message is required.";
+    }
+    if (!empty($errors)) {
+        echo "<div class='error'><b>Please fix the following errors:</b><br>";
+        foreach ($errors as $error) {
+            echo "- $error <br>";
+        }
+        echo "</div>";
+    } else {
+        echo "<div class='success'><b>Thank you, $name!</b> Your message has been received. We will contact you at <b>$email</b>.</div>";
+    }
+}
+?>
+</body>
+</html>
