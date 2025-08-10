@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Highest and Lowest Finder</title>
+</head>
+<body>
+<h2>Enter numbers separated by commas</h2>
+<form method="post">
+    <input type="text" name="numbers" placeholder="e.g. 45,12,78,3,99,54" required>
+    <input type="submit" value="Find Highest & Lowest">
+</form>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $numbersInput = $_POST['numbers'];
+    $numbersArray = array_map('trim', explode(',', $numbersInput)); // Remove spaces
+    $numbersArray = array_map('intval', $numbersArray);
+    function findHighLow($numbers) {
+        $highest = max($numbers);
+        $lowest = min($numbers);
+        return array("highest" => $highest, "lowest" => $lowest);
+    }
+    $result = findHighLow($numbersArray);
+    echo "<h3>Numbers: " . implode(", ", $numbersArray) . "</h3>";
+    echo "<p>Highest Value: <b>{$result['highest']}</b></p>";
+    echo "<p>Lowest Value: <b>{$result['lowest']}</b></p>";
+}
+?>
+</body>
+</html>
